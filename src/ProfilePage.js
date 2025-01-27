@@ -14,13 +14,20 @@ const ProfilePage = () => {
   useEffect(() => {
     // Mock API Call to simulate fetching user data
     setTimeout(() => {
-      setUser({
-        name: 'John Doe',
-        email: 'johndoe@example.com',
-        avatar: '/avatar.png', // Assuming the avatar.png is in the public folder
-      });
+        // Simulate an error (e.g., network failure)
+        const hasError = false; // Change this for testing the error condition
+
+        if (hasError) {
+            setError('Failed to load user data');
+        } else {
+            setUser({
+                name: '',
+                email: '',
+                avatar: '/avatar.png', // Assuming the avatar.png is in the public folder
+            });
+        }
     }, 1000);
-  }, []);
+}, []);
 
   const handleSubmit = (values, { setSubmitting }) => {
     // Update user information on form submission
